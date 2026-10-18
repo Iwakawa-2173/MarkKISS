@@ -1,5 +1,4 @@
-![MarkKISS](MarkKISS-logo.ico)
-
+<p align="center"><img src="MarkKISS-logo.ico" alt="MarkKISS"></p>
 
 # MarkKISS — Keep It Simple, Stupid!
 
