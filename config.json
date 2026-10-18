@@ -1,0 +1,18 @@
+{
+    "text": {
+        "font_family": "system",
+        "text_align": "left",
+        "font_size": 16,
+        "max_width": 900,
+        "language": "en"
+    },
+    "pdf": {
+        "page_size": "A4",
+        "orientation": "portrait",
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_left": 20,
+        "margin_right": 20,
+        "page_numbers": true
+    }
+}
