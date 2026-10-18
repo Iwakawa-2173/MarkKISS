@@ -1,3 +1,6 @@
+![MarkKISS](MarkKISS-logo.ico)
+
+
 # MarkKISS — Keep It Simple, Stupid!
 
 > *The definitive "dumb" Markdown editor that just works.*
