@@ -55,7 +55,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 * `Ctrl + Shift + S` : Save file as
 * `Ctrl + W` : Close current tab
 * `Ctrl + Shift + P` : Export to PDF (opens PDF parameters and preview)
-* `Ctrl+Shift+D` — Export to DOCX
+* `Ctrl + Shift + D` — Export to DOCX
 * `Ctrl + Shift + V` : Paste raw content safely converted into clean Markdown (HTML → MD)
 * `Ctrl + Tab` : Switch to the next tab
 * `Ctrl + Shift + Tab` : Switch to the previous tab
@@ -105,7 +105,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 * `Ctrl + Shift + S` : Сохранить как...
 * `Ctrl + W` : Закрыть текущую вкладку
 * `Ctrl + Shift + P` : Экспорт в PDF (открывает параметры и предпросмотр)
-* `Ctrl+Shift+D` — Экспорт в DOCX
+* `Ctrl + Shift + D` — Экспорт в DOCX
 * `Ctrl + Shift + V` : Вставить текст из буфера с безопасным преобразованием (HTML → MD)
 * `Ctrl + Tab` : Переключиться на следующую вкладку
 * `Ctrl + Shift + Tab` : Переключиться на предыдущую вкладку
@@ -155,7 +155,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + S` : 다른 이름으로 저장
 - `Ctrl + W` : 현재 탭 닫기
 - `Ctrl + Shift + P` : PDF로 내보내기 (설정 및 미리보기 창 오픈)
-- `Ctrl+Shift+D` — DOCX로 내보내기
+- `Ctrl + Shift + D` — DOCX로 내보내기
 - `Ctrl + Shift + V` : 복사된 HTML을 깨끗한 Markdown으로 안전하게 변환하여 붙여넣기 (HTML → MD)
 - `Ctrl + Tab` : 다음 탭으로 이동
 - `Ctrl + Shift + Tab` : 이전 탭으로 이동
@@ -208,7 +208,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + S` : 名前を付けて保存
 - `Ctrl + W` : 現在のタブを閉じる
 - `Ctrl + Shift + P` : PDFへエクスポート（設定とプレビュー画面を開く）
-- `Ctrl+Shift+D` — DOCXにエクスポート
+- `Ctrl + Shift + D` — DOCXにエクスポート
 - `Ctrl + Shift + V` : コピーしたHTMLをクリーンなMarkdownに安全に変換して貼り付け（HTML → MD）
 - `Ctrl + Tab` : 次のタブへ切り替え
 - `Ctrl + Shift + Tab` : 前のタブへ切り替え
@@ -261,7 +261,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + S` : 另存为...
 - `Ctrl + W` : 关闭当前标签页
 - `Ctrl + Shift + P` : 导出为 PDF（打开参数配置与预览视窗）
-- `Ctrl+Shift+D` — 导出为 DOCX
+- `Ctrl + Shift + D` — 导出为 DOCX
 - `Ctrl + Shift + V` : 粘贴剪贴板内容并安全转换为纯净 Markdown（HTML → MD）
 - `Ctrl + Tab` : 切换到下一个标签页
 - `Ctrl + Shift + Tab` : 切换到上一个标签页
@@ -314,7 +314,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + S` : 另存新檔...
 - `Ctrl + W` : 關閉當前分頁
 - `Ctrl + Shift + P` : 匯出為 PDF（開啟參數配置與預覽視窗）
-- `Ctrl+Shift+D` — 匯出為 DOCX
+- `Ctrl + Shift + D` — 匯出為 DOCX
 - `Ctrl + Shift + V` : 貼上剪貼簿內容並安全轉換為純淨 Markdown（HTML → MD）
 - `Ctrl + Tab` : 切換到下一個分頁
 - `Ctrl + Shift + Tab` : 切換到上一個分頁
@@ -367,7 +367,7 @@ Und die Entwicklungswerkzeuge sind nicht besser. Nach **5 quälenden Stunden des
 - `Ctrl + Shift + S` : Speichern unter...
 - `Ctrl + W` : Aktuellen Tab schließen
 - `Ctrl + Shift + P` : Als PDF exportieren (öffnet Einstellungen und Vorschau)
-- `Ctrl+Shift+D` — Export nach DOCX
+- `Ctrl + Shift + D` — Export nach DOCX
 - `Ctrl + Shift + V` : Inhalt einfügen und sicher in sauberes Markdown umwandeln (HTML → MD)
 - `Ctrl + Tab` : Zum nächsten Tab wechseln
 - `Ctrl + Shift + Tab` : Zum vorherigen Tab wechseln
@@ -420,7 +420,7 @@ Las herramientas de compilación no se quedaron atrás. Después de pasar **5 do
 - `Ctrl + Shift + S` : Guardar como...
 - `Ctrl + W` : Cerrar pestaña actual
 - `Ctrl + Shift + P` : Exportar a PDF (abre la configuración y la vista previa)
-- `Ctrl+Shift+D` — Exportar a DOCX
+- `Ctrl + Shift + D` — Exportar a DOCX
 - `Ctrl + Shift + V` : Pegar contenido convirtiéndolo de forma segura a Markdown limpio (HTML → MD)
 - `Ctrl + Tab` : Cambiar a la siguiente pestaña
 - `Ctrl + Shift + Tab` : Cambiar a la pestaña anterior
@@ -473,7 +473,7 @@ Les outils de déploiement ne valent pas mieux. Après avoir passé **5 heures �
 - `Ctrl + Shift + S` : Enregistrer sous...
 - `Ctrl + W` : Fermer l'onglet actuel
 - `Ctrl + Shift + P` : Exporter en PDF (ouvre les paramètres et l'aperçu)
-- `Ctrl+Shift+D` — Exporter en DOCX
+- `Ctrl + Shift + D` — Exporter en DOCX
 - `Ctrl + Shift + V` : Coller le contenu en le convertissant proprement en Markdown (HTML → MD)
 - `Ctrl + Tab` : Passer à l'onglet suivant
 - `Ctrl + Shift + Tab` : Passer à l'onglet précédent
