@@ -58,6 +58,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 * `Ctrl + Shift + V` : Paste raw content safely converted into clean Markdown (HTML → MD)
 * `Ctrl + Tab` : Switch to the next tab
 * `Ctrl + Shift + Tab` : Switch to the previous tab
+* `Ctrl+Shift+D` — Export to DOCX
 
 ## 📦 What's Inside the Release Archive
 * `python/` : Portable embedded Python environment (`pythonw.exe`, `python.exe`, `._pth`).
@@ -107,6 +108,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 * `Ctrl + Shift + V` : Вставить текст из буфера с безопасным преобразованием (HTML → MD)
 * `Ctrl + Tab` : Переключиться на следующую вкладку
 * `Ctrl + Shift + Tab` : Переключиться на предыдущую вкладку
+* `Ctrl+Shift+D` — Экспорт в DOCX
 
 ## 📦 Содержимое релизного архива
 * `python/` : Встроенный портативный Python (`pythonw.exe`, `python.exe`, `._pth`).
@@ -156,6 +158,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + V` : 복사된 HTML을 깨끗한 Markdown으로 안전하게 변환하여 붙여넣기 (HTML → MD)
 - `Ctrl + Tab` : 다음 탭으로 이동
 - `Ctrl + Shift + Tab` : 이전 탭으로 이동
+- `Ctrl+Shift+D` — DOCX로 내보내기
 
 ## 📦 릴리스 압축 파일 구성 품목
 
@@ -208,6 +211,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + V` : コピーしたHTMLをクリーンなMarkdownに安全に変換して貼り付け（HTML → MD）
 - `Ctrl + Tab` : 次のタブへ切り替え
 - `Ctrl + Shift + Tab` : 前のタブへ切り替え
+- `Ctrl+Shift+D` — DOCXにエクスポート
 
 ## 📦 リリースアーカイブの構成内容
 
@@ -260,6 +264,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + V` : 粘贴剪贴板内容并安全转换为纯净 Markdown（HTML → MD）
 - `Ctrl + Tab` : 切换到下一个标签页
 - `Ctrl + Shift + Tab` : 切换到上一个标签页
+- `Ctrl+Shift+D` — 导出为 DOCX
 
 ## 📦 发行版压缩包目录结构
 
@@ -312,6 +317,7 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - `Ctrl + Shift + V` : 貼上剪貼簿內容並安全轉換為純淨 Markdown（HTML → MD）
 - `Ctrl + Tab` : 切換到下一個分頁
 - `Ctrl + Shift + Tab` : 切換到上一個分頁
+- `Ctrl+Shift+D` — 匯出為 DOCX
 
 ## 📦 發行版壓縮包目錄結構
 
@@ -364,6 +370,7 @@ Und die Entwicklungswerkzeuge sind nicht besser. Nach **5 quälenden Stunden des
 - `Ctrl + Shift + V` : Inhalt einfügen und sicher in sauberes Markdown umwandeln (HTML → MD)
 - `Ctrl + Tab` : Zum nächsten Tab wechseln
 - `Ctrl + Shift + Tab` : Zum vorherigen Tab wechseln
+- `Ctrl+Shift+D` — Export nach DOCX
 
 ## 📦 Inhalt des Release-Archivs
 
@@ -416,6 +423,7 @@ Las herramientas de compilación no se quedaron atrás. Después de pasar **5 do
 - `Ctrl + Shift + V` : Pegar contenido convirtiéndolo de forma segura a Markdown limpio (HTML → MD)
 - `Ctrl + Tab` : Cambiar a la siguiente pestaña
 - `Ctrl + Shift + Tab` : Cambiar a la pestaña anterior
+- `Ctrl+Shift+D` — Exportar a DOCX
 
 ## 📦 Contenido del archivo de lanzamiento
 
@@ -468,6 +476,7 @@ Les outils de déploiement ne valent pas mieux. Après avoir passé **5 heures �
 - `Ctrl + Shift + V` : Coller le contenu en le convertissant proprement en Markdown (HTML → MD)
 - `Ctrl + Tab` : Passer à l'onglet suivant
 - `Ctrl + Shift + Tab` : Passer à l'onglet précédent
+- `Ctrl+Shift+D` — Exporter en DOCX
 
 ## 📦 Contenu de l'archive de version
 
