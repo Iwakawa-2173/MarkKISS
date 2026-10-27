@@ -7,6 +7,14 @@ from bs4 import BeautifulSoup
 from markdownify import markdownify as md_convert
 from pygments.formatters import HtmlFormatter
 
+# === DOCX ===
+try:
+    import pypandoc
+    _HAS_PYPANDOC = True
+except ImportError:
+    _HAS_PYPANDOC = False
+# === /DOCX ===
+
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QTextEdit, QSplitter, QFileDialog, QMessageBox, QStatusBar,
@@ -78,6 +86,18 @@ TRANSLATIONS = {
         "action_save_as": "Save as...",
         "action_close_tab": "Close tab",
         "action_export_pdf": "Export to PDF...",
+        # === DOCX ===
+        "action_export_docx": "Export to DOCX...",
+        "save_docx_title": "Save DOCX",
+        "status_docx_exported": "DOCX exported: {path}",
+        "error_export_docx": "Failed to export DOCX:\n{e}",
+        "error_pypandoc_missing": (
+            "DOCX export requires the 'pypandoc_binary' package.\n\n"
+            "Install it with:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX saved",
+        "docx_saved_text": "DOCX saved:\n{path}",
+        # === /DOCX ===
         "action_exit": "Exit",
         "action_undo": "Undo",
         "action_redo": "Redo",
@@ -145,18 +165,18 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• Works 100% offline and privately, independent of corporation servers and third-party tools\n"
             "• No databases, no AI tools, no other junk — just pure Markdown and LaTeX\n"
-            "• Create, open, save Markdown files and export them to PDF\n"
+            "• Create, open, save Markdown files and export them to PDF and DOCX\n"
             "• Heuristic parsing of headings, formulas and code — paste AI answers from browser without hassle\n"
             "• Single scrollbar for both the markup language area and the preview\n"
             "• PDF preview before conversion\n"
             "• Tab management: Ctrl+T — new, Ctrl+W — close, Ctrl+Tab / Ctrl+Shift+Tab — switch\n"
-            "• Dependencies: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• Dependencies: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "Created with the help of DeepSeek and the 'Keep It Simple, Stupid!' principle by a person "
             "who dug through gigabytes of junk software.\n"
             "Yours truly, Dharma485"
         ),
-        "window_title": "{name} {version} (100% Offline / KaTeX)",
+        "window_title": "{name} {version}",
         "window_title_doc": "{star}{name} — {app}",
         "language_names": {
             "en": "English", "ru": "Русский", "ko": "한국어", "ja": "日本語",
@@ -176,6 +196,18 @@ TRANSLATIONS = {
         "action_save_as": "Сохранить как...",
         "action_close_tab": "Закрыть вкладку",
         "action_export_pdf": "Экспорт в PDF...",
+        # === DOCX ===
+        "action_export_docx": "Экспорт в DOCX...",
+        "save_docx_title": "Сохранить DOCX",
+        "status_docx_exported": "DOCX экспортирован: {path}",
+        "error_export_docx": "Не удалось экспортировать DOCX:\n{e}",
+        "error_pypandoc_missing": (
+            "Для экспорта в DOCX требуется пакет 'pypandoc_binary'.\n\n"
+            "Установите его:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX сохранён",
+        "docx_saved_text": "DOCX сохранён:\n{path}",
+        # === /DOCX ===
         "action_exit": "Выход",
         "action_undo": "Отменить",
         "action_redo": "Повторить",
@@ -243,12 +275,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• Работает 100% автономно и приватно, независимо от серверов корпораций и сторонних инструментов\n"
             "• Не тянет за собой базы данных, AI-инструменты и прочий мусор — только чистый Markdown и LaTeX\n"
-            "• Позволяет создавать, открывать, сохранять и экспортировать Markdown-файлы в PDF\n"
+            "• Позволяет создавать, открывать, сохранять и экспортировать Markdown-файлы в PDF и DOCX\n"
             "• Эвристический парсинг заголовков, формул и кода — ответы ИИ вставляются из браузера без танцев с бубном\n"
             "• Единый ползунок прокрутки для области языка разметки и просмотра\n"
             "• Предпросмотр PDF перед конвертацией\n"
             "• Управление вкладками: Ctrl+T — новая, Ctrl+W — закрыть, Ctrl+Tab / Ctrl+Shift+Tab — переключение\n"
-            "• Зависимости: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• Зависимости: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "Создано при помощи DeepSeek и принципа 'Keep It Simple, Stupid!' человеком, перерывшим гигабайты мусорного софта.\n"
             "Ваш покорный слуга, Dharma485"
@@ -273,6 +305,18 @@ TRANSLATIONS = {
         "action_save_as": "다른 이름으로 저장...",
         "action_close_tab": "탭 닫기",
         "action_export_pdf": "PDF로 내보내기...",
+        # === DOCX ===
+        "action_export_docx": "DOCX로 내보내기...",
+        "save_docx_title": "DOCX 저장",
+        "status_docx_exported": "DOCX 내보내기 완료: {path}",
+        "error_export_docx": "DOCX를 내보내지 못했습니다:\n{e}",
+        "error_pypandoc_missing": (
+            "DOCX 내보내기에는 'pypandoc_binary' 패키지가 필요합니다.\n\n"
+            "설치:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX 저장됨",
+        "docx_saved_text": "DOCX 저장됨:\n{path}",
+        # === /DOCX ===
         "action_exit": "종료",
         "action_undo": "실행 취소",
         "action_redo": "다시 실행",
@@ -340,12 +384,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• 100% 오프라인 및 비공개로 작동하며, 기업 서버나 타사 도구에 의존하지 않습니다\n"
             "• 데이터베이스, AI 도구 및 기타 불필요한 요소 없이 순수 Markdown과 LaTeX만 사용합니다\n"
-            "• Markdown 파일을 생성, 열기, 저장하고 PDF로 내보낼 수 있습니다\n"
+            "• Markdown 파일을 생성, 열기, 저장하고 PDF 및 DOCX로 내보낼 수 있습니다\n"
             "• 제목, 수식, 코드의 휴리스틱 파싱 — 브라우저에서 AI 답변을 번거로움 없이 붙여넣기\n"
             "• 마크업 영역과 미리보기를 위한 단일 스크롤바\n"
             "• 변환 전 PDF 미리보기\n"
             "• 탭 관리: Ctrl+T — 새 탭, Ctrl+W — 닫기, Ctrl+Tab / Ctrl+Shift+Tab — 전환\n"
-            "• 종속성: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• 종속성: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "DeepSeek와 'Keep It Simple, Stupid!' 원칙의 도움으로, 기가바이트의 쓰레기 소프트웨어를 뒤진 사람이 만들었습니다.\n"
             "Dharma485 드림"
@@ -370,6 +414,18 @@ TRANSLATIONS = {
         "action_save_as": "名前を付けて保存...",
         "action_close_tab": "タブを閉じる",
         "action_export_pdf": "PDFにエクスポート...",
+        # === DOCX ===
+        "action_export_docx": "DOCXにエクスポート...",
+        "save_docx_title": "DOCXを保存",
+        "status_docx_exported": "DOCXエクスポート完了: {path}",
+        "error_export_docx": "DOCXのエクスポートに失敗しました:\n{e}",
+        "error_pypandoc_missing": (
+            "DOCXエクスポートには 'pypandoc_binary' パッケージが必要です。\n\n"
+            "インストール:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCXを保存しました",
+        "docx_saved_text": "DOCXを保存しました:\n{path}",
+        # === /DOCX ===
         "action_exit": "終了",
         "action_undo": "元に戻す",
         "action_redo": "やり直す",
@@ -437,12 +493,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• 100%オフラインでプライベートに動作し、企業サーバーやサードパーティツールに依存しません\n"
             "• データベース、AIツール、その他の不要なものを含まず、純粋なMarkdownとLaTeXのみ\n"
-            "• Markdownファイルの作成、開く、保存、PDFへのエクスポートが可能\n"
+            "• Markdownファイルの作成、開く、保存、PDF・DOCXへのエクスポートが可能\n"
             "• 見出し、数式、コードのヒューリスティック解析 — ブラウザからAIの回答を手間なく貼り付け\n"
             "• マークアップ領域とプレビュー用の単一スクロールバー\n"
             "• 変換前のPDFプレビュー\n"
             "• タブ管理: Ctrl+T — 新規、Ctrl+W — 閉じる、Ctrl+Tab / Ctrl+Shift+Tab — 切り替え\n"
-            "• 依存関係: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• 依存関係: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "DeepSeekと「Keep It Simple, Stupid!」の原則の助けを借りて、ギガバイトの不要なソフトウェアを掘り下げた人が作成しました。\n"
             "Dharma485より"
@@ -467,6 +523,18 @@ TRANSLATIONS = {
         "action_save_as": "另存为...",
         "action_close_tab": "关闭标签页",
         "action_export_pdf": "导出为 PDF...",
+        # === DOCX ===
+        "action_export_docx": "导出为 DOCX...",
+        "save_docx_title": "保存 DOCX",
+        "status_docx_exported": "DOCX 已导出: {path}",
+        "error_export_docx": "导出 DOCX 失败:\n{e}",
+        "error_pypandoc_missing": (
+            "DOCX 导出需要 'pypandoc_binary' 包。\n\n"
+            "安装:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX 已保存",
+        "docx_saved_text": "DOCX 已保存:\n{path}",
+        # === /DOCX ===
         "action_exit": "退出",
         "action_undo": "撤销",
         "action_redo": "重做",
@@ -534,12 +602,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• 100% 离线私密运行，不依赖企业服务器和第三方工具\n"
             "• 无数据库、无 AI 工具、无其他杂项 — 只有纯 Markdown 和 LaTeX\n"
-            "• 创建、打开、保存 Markdown 文件并导出为 PDF\n"
+            "• 创建、打开、保存 Markdown 文件并导出为 PDF 和 DOCX\n"
             "• 标题、公式和代码的启发式解析 — 从浏览器粘贴 AI 答案毫不费力\n"
             "• 标记语言区域和预览共用一个滚动条\n"
             "• 转换前预览 PDF\n"
             "• 标签页管理: Ctrl+T — 新建, Ctrl+W — 关闭, Ctrl+Tab / Ctrl+Shift+Tab — 切换\n"
-            "• 依赖: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• 依赖: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "在 DeepSeek 和 'Keep It Simple, Stupid!' 原则的帮助下，由一位翻遍数 GB 垃圾软件的人创建。\n"
             "您忠实的 Dharma485"
@@ -564,6 +632,18 @@ TRANSLATIONS = {
         "action_save_as": "另存新檔...",
         "action_close_tab": "關閉分頁",
         "action_export_pdf": "匯出為 PDF...",
+        # === DOCX ===
+        "action_export_docx": "匯出為 DOCX...",
+        "save_docx_title": "儲存 DOCX",
+        "status_docx_exported": "DOCX 已匯出: {path}",
+        "error_export_docx": "匯出 DOCX 失敗:\n{e}",
+        "error_pypandoc_missing": (
+            "DOCX 匯出需要 'pypandoc_binary' 套件。\n\n"
+            "安裝:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX 已儲存",
+        "docx_saved_text": "DOCX 已儲存:\n{path}",
+        # === /DOCX ===
         "action_exit": "結束",
         "action_undo": "復原",
         "action_redo": "重做",
@@ -631,12 +711,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• 100% 離線私密執行，不依賴企業伺服器和第三方工具\n"
             "• 無資料庫、無 AI 工具、無其他雜項 — 只有純 Markdown 和 LaTeX\n"
-            "• 建立、開啟、儲存 Markdown 檔案並匯出為 PDF\n"
+            "• 建立、開啟、儲存 Markdown 檔案並匯出為 PDF 和 DOCX\n"
             "• 標題、公式和程式碼的啟發式解析 — 從瀏覽器貼上 AI 回答毫不費力\n"
             "• 標記語言區域和預覽共用一個捲軸\n"
             "• 轉換前預覽 PDF\n"
             "• 分頁管理: Ctrl+T — 新增, Ctrl+W — 關閉, Ctrl+Tab / Ctrl+Shift+Tab — 切換\n"
-            "• 相依性: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• 相依性: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "在 DeepSeek 和 'Keep It Simple, Stupid!' 原則的幫助下，由一位翻遍數 GB 垃圾軟體的人建立。\n"
             "您忠實的 Dharma485"
@@ -661,6 +741,18 @@ TRANSLATIONS = {
         "action_save_as": "Speichern unter...",
         "action_close_tab": "Tab schließen",
         "action_export_pdf": "Als PDF exportieren...",
+        # === DOCX ===
+        "action_export_docx": "Als DOCX exportieren...",
+        "save_docx_title": "DOCX speichern",
+        "status_docx_exported": "DOCX exportiert: {path}",
+        "error_export_docx": "DOCX konnte nicht exportiert werden:\n{e}",
+        "error_pypandoc_missing": (
+            "Für den DOCX-Export wird das Paket 'pypandoc_binary' benötigt.\n\n"
+            "Installation:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX gespeichert",
+        "docx_saved_text": "DOCX gespeichert:\n{path}",
+        # === /DOCX ===
         "action_exit": "Beenden",
         "action_undo": "Rückgängig",
         "action_redo": "Wiederholen",
@@ -728,12 +820,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• Funktioniert 100% offline und privat, unabhängig von Unternehmensservern und Drittanbieter-Tools\n"
             "• Keine Datenbanken, keine KI-Tools, kein anderer Müll — nur reines Markdown und LaTeX\n"
-            "• Markdown-Dateien erstellen, öffnen, speichern und als PDF exportieren\n"
+            "• Markdown-Dateien erstellen, öffnen, speichern und als PDF und DOCX exportieren\n"
             "• Heuristische Analyse von Überschriften, Formeln und Code — KI-Antworten aus dem Browser problemlos einfügen\n"
             "• Ein einziger Scrollbalken für Markup-Bereich und Vorschau\n"
             "• PDF-Vorschau vor der Konvertierung\n"
             "• Tab-Verwaltung: Ctrl+T — neu, Ctrl+W — schließen, Ctrl+Tab / Ctrl+Shift+Tab — wechseln\n"
-            "• Abhängigkeiten: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• Abhängigkeiten: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "Erstellt mit Hilfe von DeepSeek und dem Prinzip 'Keep It Simple, Stupid!' von einer Person, "
             "die Gigabytes an Müllsoftware durchwühlt hat.\n"
@@ -759,6 +851,18 @@ TRANSLATIONS = {
         "action_save_as": "Guardar como...",
         "action_close_tab": "Cerrar pestaña",
         "action_export_pdf": "Exportar a PDF...",
+        # === DOCX ===
+        "action_export_docx": "Exportar a DOCX...",
+        "save_docx_title": "Guardar DOCX",
+        "status_docx_exported": "DOCX exportado: {path}",
+        "error_export_docx": "No se pudo exportar el DOCX:\n{e}",
+        "error_pypandoc_missing": (
+            "La exportación a DOCX requiere el paquete 'pypandoc_binary'.\n\n"
+            "Instalación:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX guardado",
+        "docx_saved_text": "DOCX guardado:\n{path}",
+        # === /DOCX ===
         "action_exit": "Salir",
         "action_undo": "Deshacer",
         "action_redo": "Rehacer",
@@ -826,12 +930,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• Funciona 100% offline y de forma privada, independiente de servidores corporativos y herramientas de terceros\n"
             "• Sin bases de datos, sin herramientas de IA, sin otra basura — solo Markdown puro y LaTeX\n"
-            "• Crear, abrir, guardar archivos Markdown y exportarlos a PDF\n"
+            "• Crear, abrir, guardar archivos Markdown y exportarlos a PDF y DOCX\n"
             "• Análisis heurístico de encabezados, fórmulas y código — pegue respuestas de IA desde el navegador sin complicaciones\n"
             "• Una sola barra de desplazamiento para el área de marcado y la vista previa\n"
             "• Vista previa de PDF antes de la conversión\n"
             "• Gestión de pestañas: Ctrl+T — nueva, Ctrl+W — cerrar, Ctrl+Tab / Ctrl+Shift+Tab — cambiar\n"
-            "• Dependencias: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• Dependencias: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "Creado con la ayuda de DeepSeek y el principio 'Keep It Simple, Stupid!' por una persona "
             "que ha rebuscado en gigabytes de software basura.\n"
@@ -857,6 +961,18 @@ TRANSLATIONS = {
         "action_save_as": "Enregistrer sous...",
         "action_close_tab": "Fermer l'onglet",
         "action_export_pdf": "Exporter en PDF...",
+        # === DOCX ===
+        "action_export_docx": "Exporter en DOCX...",
+        "save_docx_title": "Enregistrer le DOCX",
+        "status_docx_exported": "DOCX exporté: {path}",
+        "error_export_docx": "Échec de l'export DOCX:\n{e}",
+        "error_pypandoc_missing": (
+            "L'export DOCX nécessite le paquet 'pypandoc_binary'.\n\n"
+            "Installation:\n    pip install pypandoc_binary"
+        ),
+        "docx_saved_title": "DOCX enregistré",
+        "docx_saved_text": "DOCX enregistré:\n{path}",
+        # === /DOCX ===
         "action_exit": "Quitter",
         "action_undo": "Annuler",
         "action_redo": "Rétablir",
@@ -924,12 +1040,12 @@ TRANSLATIONS = {
             "MarkKISS v{version}\n\n"
             "• Fonctionne 100% hors ligne et en privé, indépendamment des serveurs d'entreprise et des outils tiers\n"
             "• Pas de bases de données, pas d'outils d'IA, pas d'autres déchets — uniquement du Markdown pur et du LaTeX\n"
-            "• Créer, ouvrir, enregistrer des fichiers Markdown et les exporter en PDF\n"
+            "• Créer, ouvrir, enregistrer des fichiers Markdown et les exporter en PDF et DOCX\n"
             "• Analyse heuristique des titres, formules et code — collez les réponses d'IA depuis le navigateur sans difficulté\n"
             "• Une seule barre de défilement pour la zone de balisage et l'aperçu\n"
             "• Aperçu PDF avant conversion\n"
             "• Gestion des onglets: Ctrl+T — nouveau, Ctrl+W — fermer, Ctrl+Tab / Ctrl+Shift+Tab — changer\n"
-            "• Dépendances: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions\n"
+            "• Dépendances: pip install markdownify beautifulsoup4 pygments markdown pymdown-extensions pypandoc_binary\n"
             "_______________________________________________________________________________________\n"
             "Créé avec l'aide de DeepSeek et du principe 'Keep It Simple, Stupid!' par une personne "
             "qui a fouillé des gigaoctets de logiciels indésirables.\n"
@@ -1554,6 +1670,7 @@ class MarkdownEditor(QMainWindow):
         self.settings = load_settings()
         self.pdf_settings = load_pdf_settings()
         self.lang = self.settings.get("language", "en")
+        self._last_dir = self.settings.get("last_dir", BASE_DIR)
         self.setWindowTitle(
             tr(self.lang, "window_title", name=APP_NAME, version=APP_VERSION)
         )
@@ -1626,6 +1743,13 @@ class MarkdownEditor(QMainWindow):
         export_pdf_action.setShortcut(QKeySequence("Ctrl+Shift+P"))
         export_pdf_action.triggered.connect(self._export_pdf)
         file_menu.addAction(export_pdf_action)
+
+        # === DOCX ===
+        export_docx_action = QAction(tr(lang, "action_export_docx"), self)
+        export_docx_action.setShortcut(QKeySequence("Ctrl+Shift+D"))
+        export_docx_action.triggered.connect(self._export_docx)
+        file_menu.addAction(export_docx_action)
+        # === /DOCX ===
 
         file_menu.addSeparator()
 
@@ -1833,11 +1957,12 @@ class MarkdownEditor(QMainWindow):
 
     def _open_file(self):
         path, _ = QFileDialog.getOpenFileName(
-            self, tr(self.lang, "action_open"), "",
+            self, tr(self.lang, "action_open"), self._last_dir,
             "Markdown (*.md *.markdown);;All files (*)"
         )
         if not path:
             return
+            
         for i in range(self.tabs.count()):
             t = self.tabs.widget(i)
             if t.current_file and os.path.normcase(t.current_file) == os.path.normcase(path):
@@ -1850,6 +1975,10 @@ class MarkdownEditor(QMainWindow):
             QMessageBox.critical(self, tr(self.lang, "error"),
                                  tr(self.lang, "error_open_file", e=e))
             return
+
+        self._last_dir = os.path.dirname(path)
+        self.settings["last_dir"] = self._last_dir
+        save_settings(self.settings, self.pdf_settings)
 
         current = self.current_tab()
         if (
@@ -1885,12 +2014,15 @@ class MarkdownEditor(QMainWindow):
         tab = tab or self.current_tab()
         if tab is None:
             return
-        start_path = tab.current_file or ""
+        start_path = tab.current_file or self._last_dir
         path, _ = QFileDialog.getSaveFileName(
             self, tr(self.lang, "action_save_as"), start_path,
             "Markdown (*.md);;All files (*)"
         )
         if path:
+            self._last_dir = os.path.dirname(path)
+            self.settings["last_dir"] = self._last_dir
+            save_settings(self.settings, self.pdf_settings)
             self._write_file(tab, path)
 
     def _write_file(self, tab: DocumentTab, path: str):
@@ -2167,8 +2299,12 @@ img {{ max-width: 100%; height: auto; }}
                 suggested = os.path.splitext(os.path.basename(tab.current_file))[0] + ".pdf"
             else:
                 suggested = "document.pdf"
+            suggested = os.path.join(self._last_dir, suggested)
             dlg = PdfPreviewDialog(pdf_data, self, suggested, self.lang)
             if dlg.exec() == QDialog.DialogCode.Accepted and dlg.saved_path:
+                self._last_dir = os.path.dirname(dlg.saved_path)
+                self.settings["last_dir"] = self._last_dir
+                save_settings(self.settings, self.pdf_settings)
                 self.status_bar.showMessage(
                     tr(self.lang, "status_pdf_exported", path=dlg.saved_path), 4000
                 )
@@ -2191,8 +2327,101 @@ img {{ max-width: 100%; height: auto; }}
         if msg.clickedButton() is show_btn:
             self._reveal_in_explorer(path)
 
+    # ------------------------------------------------------------------
+    # DOCX (Pandoc via pypandoc)
+    # ------------------------------------------------------------------
     @staticmethod
-    def _reveal_in_explorer(path: str):
+    def _normalize_latex_for_pandoc(text: str) -> str:
+        r"""
+        Pandoc ожидает стандартные $...$ / $$...$$ для формул.
+        MarkKISS допускает \[..\], \(..\) — приводим их к стандарту,
+        не трогая содержимое fenced-блоков кода.
+        """
+        parts = re.split(r'(```.*?```)', text, flags=re.DOTALL)
+        out = []
+        for part in parts:
+            if part.startswith("```"):
+                out.append(part)
+                continue
+            # Блочные \[ ... \] -> $$ ... $$
+            part = part.replace(r"\[", "$$").replace(r"\]", "$$")
+            # Строчные \( ... \) -> $ ... $
+            part = part.replace(r"\(", "$").replace(r"\)", "$")
+            out.append(part)
+        return "".join(out)
+
+    def _export_docx(self):
+        if not _HAS_PYPANDOC:
+            QMessageBox.critical(
+                self, tr(self.lang, "error"),
+                tr(self.lang, "error_pypandoc_missing")
+            )
+            return
+
+        tab = self.current_tab()
+        if tab is None or not tab.editor.toPlainText().strip():
+            QMessageBox.warning(
+                self, tr(self.lang, "export_empty_title"),
+                tr(self.lang, "export_empty_text")
+            )
+            return
+
+        if tab.current_file:
+            suggested = os.path.splitext(os.path.basename(tab.current_file))[0] + ".docx"
+        else:
+            suggested = "document.docx"
+
+        start_path = os.path.join(self._last_dir, suggested)
+        path, _ = QFileDialog.getSaveFileName(
+            self, tr(self.lang, "save_docx_title"), start_path,
+            "Word Document (*.docx)"
+        )
+        if not path:
+            return
+        self._last_dir = os.path.dirname(path)
+        self.settings["last_dir"] = self._last_dir
+        save_settings(self.settings, self.pdf_settings)
+
+        md_text = self._normalize_latex_for_pandoc(tab.editor.toPlainText())
+
+        try:
+            pypandoc.convert_text(
+                md_text,
+                'docx',
+                format='gfm',
+                outputfile=path,
+                extra_args=['--standalone'],
+            )
+        except Exception as e:
+            QMessageBox.critical(
+                self, tr(self.lang, "error"),
+                tr(self.lang, "error_export_docx", e=e)
+            )
+            return
+
+        self.status_bar.showMessage(
+            tr(self.lang, "status_docx_exported", path=path), 4000
+        )
+        self._show_docx_saved_dialog(path)
+
+    def _show_docx_saved_dialog(self, path: str):
+        msg = QMessageBox(self)
+        msg.setWindowTitle(tr(self.lang, "docx_saved_title"))
+        msg.setIcon(QMessageBox.Icon.Information)
+        msg.setText(tr(self.lang, "docx_saved_text", path=path))
+        show_btn = msg.addButton(
+            tr(self.lang, "btn_show_in_folder"), QMessageBox.ButtonRole.ActionRole
+        )
+        ok_btn = msg.addButton(QMessageBox.StandardButton.Ok)
+        msg.setDefaultButton(ok_btn)
+        msg.exec()
+        if msg.clickedButton() is show_btn:
+            self._reveal_in_explorer(path)
+    # ------------------------------------------------------------------
+    # /DOCX
+    # ------------------------------------------------------------------
+
+    def _reveal_in_explorer(self, path: str):
         try:
             if sys.platform.startswith("win"):
                 import subprocess
@@ -2213,7 +2442,8 @@ img {{ max-width: 100%; height: auto; }}
                     subprocess.Popen(["xdg-open", os.path.dirname(path)])
         except Exception as e:
             QMessageBox.warning(
-                None, "Error", f"Failed to open folder:\n{e}"
+                self, tr(self.lang, "error"),
+                tr(self.lang, "error_open_folder", e=e)
             )
 
     def _show_about(self):
