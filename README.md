@@ -47,6 +47,12 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 * **Synchronized Scrollbars:** A single unified scrolling experience anchors both the markdown code and the live HTML rendering side-by-side.
 * **Adjustable Split Screen:** The editor and preview panes are separated by a **vertical partition wall**. You can drag this wall left or right to dynamically resize your workspace.
 * **PDF Preview & Conversion:** Tweak margins, page sizing, and orientation, preview the document exactly as it will print, and export it instantly.
+* **Direct Export to Word (DOCX) with Live Formulas and Perfect Layout**
+Stop fighting broken formatting when moving your notes to office suites. MarkKISS features a robust, built-in DOCX export engine (powered by Pandoc) that does not just dumbly copy text, but transforms it into a professionally formatted Word document:
+
+- **Editable Math Formulas:** All your LaTeX mathematical expressions are automatically converted into Microsoft Word’s native, standard equation format (OMML). Edit them directly in Word using built-in tools.
+- **Flawless Tables & Lists:** No more displaced cells or broken bullet points. Multi-level lists and data tables completely retain their structure, borders, and paddings.
+- **Proper Heading Hierarchy:** Markdown headings are cleanly mapped to standard Word heading styles (Heading 1, Heading 2, etc.), generating a proper document outline and instant automated Tables of Contents.
 
 ### ⌨️ Hotkeys
 * `Ctrl + N` : New document
@@ -97,6 +103,12 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 * **Единый скроллбар:** Область ввода разметки и окно просмотра синхронизированы общим ползунком прокрутки.
 * **Гибкий интерфейс:** Области кода разметки и отображения результата разделены общей **вертикальной «стенкой»**. Вы можете менять их размеры, просто сдвинув эту стенку влево или вправо.
 * **Конвертация в PDF с предпросмотром:** Настраивайте формат страницы, ориентацию, отступы и проверяйте финальный вид документа прямо в приложении перед сохранением.
+* **Прямой экспорт в Word (DOCX) с живыми формулами и идеальной вёрсткой**
+Хватит страдать из-за кривого форматирования при переносе документов в офисные пакеты. В MarkKISS встроен полноценный конвертер в формат DOCX (работает через связку Pandoc), который не просто копирует текст, а превращает его в профессионально сверстанный документ Word:
+
+- **Редактируемые формулы:** Все математические выражения LaTeX автоматически преобразуются в нативный, стандартный формат формул Microsoft Word (OMML). Вы сможете редактировать их прямо в Word штатными средствами.
+- **Идеальные таблицы и списки:** Никаких съехавших ячеек и сломанных маркеров. Многоуровневые списки и таблицы сохраняют свою структуру, границы и отступы.
+- **Честные заголовки:** Заголовки Markdown превращаются в стандартные стили Word (Заголовок 1, Заголовок 2 и т.д.), формируя правильную иерархию и автоматическое оглавление документа.
 
 ### ⌨️ Горячие клавиши
 * `Ctrl + N` : Новый документ
@@ -147,6 +159,12 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 * **동기화된 스크롤바:** 마크업 편집 영역과 라이브 HTML 미리보기 창이 하나의 스크롤바로 완벽히 동기화되어 움직입니다.
 * **크기 조절 가능한 분할 화면:** 편집창과 미리보기창은 하나의 **수직 분할 벽**으로 나뉘어 있습니다. 이 벽을 마우스로 좌우로 드래그하여 작업 영역의 크기를 자유롭게 조절할 수 있습니다.
 * **미리보기가 포함된 PDF 변환:** 페이지 크기, 방향, 여백을 자유롭게 설정하고 저장 전 최종 인쇄 형태를 앱 내에서 미리 확인할 수 있습니다.
+* **수식 편집 및 완벽한 레이아웃을 지원하는 Word (DOCX) 직접 내보내기**
+문서를 오피스 프로그램으로 옮길 때마다 깨지는 서식 때문에 스트레스 받지 마세요. MarkKISS에는 단순 텍스트 복사가 아닌, 프로페셔널하게 서식이 지정된 Word 문서로 변환해주는 강력한 내장 DOCX 내보내기 엔진(Pandoc 기반)이 탑재되어 있습니다:
+
+- **편집 가능한 수학 수식:** 모든 LaTeX 수학 표현식이 Microsoft Word의 기본 표준 수식 포맷(OMML)으로 자동 변환됩니다. 내장 도구를 사용하여 Word에서 직접 수식을 편집할 수 있습니다.
+- **완벽한 표 및 목록:** 셀이 밀리거나 글머리 기호가 깨지는 현상이 없습니다. 다단계 목록과 데이터 표의 구조, 테두리, 여백이 그대로 유지됩니다.
+- **올바른 제목 계층 구조:** Markdown 제목이 Word의 표준 제목 스타일(제목 1, 제목 2 등)과 깔끔하게 매핑되어 올바른 문서 구조를 형성하고 자동으로 목차를 생성할 수 있습니다.
 
 ### ⌨️ 단축키
 - `Ctrl + N` : 새 문서 생성
@@ -199,6 +217,12 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - **同期スクロール:** マークアップ入力エリアとHTMLプレビュー画面が、1つのスクロールバーで完全に同期して動きます。
 - **可変分割画面:** エディタ領域とプレビュー領域は、1本の**「垂直な仕切り壁」**で区切られています。この壁をマウスで左右にドラッグするだけで、それぞれの領域のサイズを自由に変更できます。
 - **プレビュー付きPDF変換:** ページサイズ、向き、余バックを自由に設定し、保存前に最終的な印刷状態をアプリ内で確認できます。
+- **数式編集・完全レイアウト対応のWord（DOCX）直接エクスポート**
+オフィスソフト의にドキュメントを移行する際、崩れるフォーマットに悩まされるのはもう終わりにしましょう。MarkKISSには、単にテキストをコピーするのではなく、プロフェッショナルに整形されたWord文書へと変換する強力な組み込みDOCXエクスポートエンジン（Pandoc連携）が搭載されています：
+
+- **編集可能な数式：** すべてのLaTeX数式表現は、Microsoft Wordのネイティブな標準数式フォーマット（OMML）に自動変換されます。Wordの標準機能を使って、そのまま数式を編集可能です。
+- **崩れない表とリスト：** セルのズレや箇条書きの破損は一切ありません。多段リストやデータ表の構造、境界線、余白が完全に維持されます。
+- **正しい見出し階層：** Markdownの見出しがWordの標準見出しスタイル（見出し1、見出し2など）ときれいにマッピングされ、正しい文書構造を形成し、自動で目次を生成できます。
 
 ## ⌨️ ショートカットキー
 
@@ -252,6 +276,12 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - **双窗同步滚动:** 源码输入区和 live HTML 预览区通过一个统一的滚动条进行完美同步。
 - **可调分割屏幕:** 编辑区域和预览区域由一面**中央垂直“隔墙”**分开。只需用鼠标将这面墙向左或向右拖动，即可动态调整两边视窗的大小。
 - **带预览 PDF 转换:** 支持自由微调纸张尺寸、方向、页边距，并在保存前在软件内直接查看最终打印效果。
+- **直接导出为 Word (DOCX)：支持公式二次编辑与完美排版**
+别再为文档导入 Office 时排版崩溃而抓狂 share 了。MarkKISS 内置了强健的 DOCX 导出引擎（基于 Pandoc 联动），它绝不是生硬地复制文本，而是将其转化为排版严谨、专业的 Word 文档：
+
+- **可编辑的数学公式：** 所有的 LaTeX 数学公式都会自动转换为 Microsoft Word 原生的标准公式格式 (OMML)。导出后，您可以直接在 Word 中使用自带工具对公式进行无缝修改。
+- **完美的表格与列表：** 彻底告别单元格错位和列表符号丢失。多级列表与数据表将原汁原味地保留其结构、边框和间距。
+- **规范的标题层级：** Markdown 标题精准映射至 Word 标准标题样式（标题 1、标题 2 等），自动构建清晰的文档目录大纲。
 
 ## ⌨️ 快捷键
 
@@ -305,6 +335,12 @@ Why use a heavy truck to deliver a single letter? The solution was to ditch the 
 - **雙窗同步捲動:** 原始碼輸入區和 live HTML 預覽區透過一個統一的捲軸進行完美同步。
 - **可調分割螢幕:** 編輯區域和預覽區域由一面**中央垂直「隔牆」**分開。只需用滑鼠將這面牆向左或向右拖曳，即可動態調整兩邊視窗的大小。
 - **帶預覽 PDF 轉換:** 支援自由微調紙張尺寸、方向、頁邊距，並在儲存前在軟體內直接查看最終列印效果。
+- **直接匯出為 Word (DOCX)：支援公式二次編輯與完美排版**
+別再為檔案匯入 Office 時排版崩潰而抓狂了。MarkKISS 內置了強健的 DOCX 匯出引擎（基於 Pandoc 連動），它絕不是生硬地複製文字，而是將其轉化為排版嚴謹、專業的 Word 文件：
+
+- **可編輯的數學公式：** 所有的 LaTeX 數學公式都會自動轉換為 Microsoft Word 原生的標準公式格式 (OMML)。匯出後，您可以直接在 Word 中使用內建工具對公式進行無縫修改。
+- **完美的表格與列表：** 徹底告別儲存格錯位和清單符號丟失。多級清單與資料表將原汁原味地保留其結構、邊框和間距。
+- **規範的標題層級：** Markdown 標題精準映射至 Word 標準標題樣式（標題 1、標題 2 等），自動構建清晰的文件目錄大綱。
 
 ## ⌨️ 快捷鍵
 
@@ -358,6 +394,12 @@ Und die Entwicklungswerkzeuge sind nicht besser. Nach **5 quälenden Stunden des
 - **Synchronisierte Scrollbalken:** Der Markup-Codebereich und die HTML-Vorschau sind über einen einzigen Scrollbalken perfekt miteinander synchronisiert.
 - **Einstellbarer geteilter Bildschirm:** Die Editor- und Vorschaufenster sind durch eine **vertikale Trennwand** getrennt. Sie können diese Wand nach links oder rechts verschieben, um die Größe der Arbeitsbereiche anzupassen.
 - **PDF-Konvertierung mit Vorschau:** Passen Sie Seitenformat, Ausrichtung und Ränder an und überprüfen Sie das Dokument vor dem Speichern in der Live-Vorschau.
+- **Direkter Word-Export (DOCX) mit editierbaren Formeln und perfektem Layout**
+Schluss mit zerschossener Formatierung beim Übertragen von Dokumenten in Office-Pakete. MarkKISS verfügt über eine robuste, integrierte DOCX-Export-Engine (unterstützt durch Pandoc), die Text nicht einfach nur stumpf kopiert, sondern in ein professionell formatiertes Word-Dokument verwandelt:
+
+- **Editierbare mathematische Formeln:** Alle LaTeX-Formeln werden automatisch in das native Standard-Gleichungsformat von Microsoft Word (OMML) umgewandelt. Sie können sie direkt in Word mit den integrierten Tools bearbeiten.
+- **Makellose Tabellen & Listen:** Keine verschobenen Zellen oder fehlerhaften Aufzählungspunkte mehr. Mehrstufige Listen und Datentabellen behalten ihre Struktur, Rahmen und Abstände vollständig bei.
+- **Echte Überschriftenhierarchie:** Markdown-Überschriften werden sauber den Standard-Word-Formatvorlagen (Überschrift 1, Überschrift 2 usw.) zugeordnet, was eine korrekte Dokumentenstruktur und automatische Inhaltsverzeichnisse ermöglicht.
 
 ## ⌨️ Tastenkombinationen
 
@@ -411,6 +453,12 @@ Las herramientas de compilación no se quedaron atrás. Después de pasar **5 do
 - **Barra de desplazamiento sincronizada:** El área del código fuente y la vista previa HTML se mueven de forma idéntica con una sola barra de desplazamiento.
 - **Pantalla dividida ajustable:** Las áreas del código de marcado y del resultado están separadas por una **"pared vertical"** común. Puede cambiar sus tamaños simplemente deslizando esta pared hacia la izquierda o hacia la derecha.
 - **Conversión a PDF con vista previa:** Ajuste el tamaño de página, la orientación y los márgenes, y verifique el diseño final dentro de la aplicación antes de guardarlo.
+- **Exportación directa a Word (DOCX) con fórmulas editables y diseño perfecto**
+Deja de pelear con formatos rotos al transferir tus notas a suites de oficina. MarkKISS cuenta con un robusto motor de exportación a DOCX integrado (impulsado por Pandoc) que no solo copia texto a ciegas, sino que lo transforma en un documento de Word con formato profesional:
+
+- **Fórmulas matemáticas editables:** Todas las expresiones matemáticas de LaTeX se convierten automáticamente al formato de ecuaciones nativo y estándar de Microsoft Word (OMML). Edítalas directamente en Word usando las herramientas integradas.
+- **Tablas y listas impecables:** Olvídate de celdas desalineadas o viñetas rotas. Las listas multinivel y las tablas de datos conservan completamente su estructura, bordes y márgenes.
+- **Jerarquía de encabezados correcta:** Los encabezados de Markdown se asignan limpiamente a los estilos de encabezado estándar de Word (Título 1, Título 2, etc.), generando un esquema de documento correcto y tablas de contenido automáticas.
 
 ## ⌨️ Atajos de teclado
 
@@ -464,6 +512,12 @@ Les outils de déploiement ne valent pas mieux. Après avoir passé **5 heures �
 - **Défilement synchronisé :** La zone de saisie du code et la fenêtre de prévisualisation HTML se déplacent de manière identique avec une seule barre de défilement.
 - **Écran partagé ajustable :** Les zones de texte et de prévisualisation sont séparées par une **« cloison verticale »** commune. Vous pouvez modifier leur taille en faisant simplement glisser cette cloison vers la gauche ou vers la droite.
 - **Conversion PDF avec aperçu :** Ajustez le format de page, l'orientation et les marges, et vérifiez le rendu final directement dans l'application avant l'enregistrement.
+- **Exportation directe vers Word (DOCX) con formules éditables et mise en page parfaite**
+Arrêtez de vous battre avec des formats corrompus lorsque vous transférez vos documents vers des suites bureautiques. MarkKISS intègre un moteur d'exportation DOCX robuste (propulsé par Pandoc) qui ne se contente pas de copier bêtement du texte, mais le transforme en un document Word professionnellement mis en forme :
+
+- **Formules mathématiques éditables :** Toutes vos expressions LaTeX sont automatiquement converties au format d'équation natif et standard de Microsoft Word (OMML). Modifiez-les directement dans Word à l'aide des outils intégrés.
+- **Tableaux & Listes impeccables :** Fini les cellules décalées ou les puces cassées. Les listes multiniveaux et les tableaux de données conservent intégralement leur structure, leurs bordes et leurs espacements.
+- **Hiérarchie des titres respectée :** Les titres Markdown sont mappés proprement sur les styles de titre standards de Word (Titre 1, Titre 2, etc.), générant un plan de document correct et des tables des matières automatiques.
 
 ## ⌨️ Raccourcis clavier
 
